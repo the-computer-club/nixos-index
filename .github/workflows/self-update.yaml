@@ -22,13 +22,16 @@ jobs:
       run: |
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
-        git commit flake.lock -m "chore: update"
         set -e
         nix build .#mkci
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
+        git add .github/workflows
+        git stage .github/workflows
+        git stage flake.lock
         set +e
-
+        git commit -a -m "chore: update"
+        
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
