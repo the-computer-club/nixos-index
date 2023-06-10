@@ -29,6 +29,7 @@ jobs:
         git add .github README.md || echo "nothing to add!"
         git stage .github flake.lock README.md || echo "nothing to stage!"
         git commit -a -m 'chore: update' || echo "no updates!"
+        git push origin auto-update || echo "couldnt push updates!"
 
     # - name: Create Pull Request
     #   uses: peter-evans/create-pull-request@v5
