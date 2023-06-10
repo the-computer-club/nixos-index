@@ -7,17 +7,18 @@ jobs:
   self-update:
     runs-on: ubuntu-latest
     steps:
-    - name: configure git user
-      run: |
-        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-        git config --local user.name "${{ github.actor }}"
-
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v20
       with:
         nix_path: nixpkgs=channel:nixos-unstable
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - run: nix flake update
+
+    - name: configure git user
+      run: |
+        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+        git config --local user.name "${{ github.actor }}"
+        git commit flake.lock -m "chore: update"
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
