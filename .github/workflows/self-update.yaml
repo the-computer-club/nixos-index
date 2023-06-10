@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '* * * 30 *'  # 30m
+  - cron: '15 * * * *'  # 15m
 
 jobs:
   self-update:
