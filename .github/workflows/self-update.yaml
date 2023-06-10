@@ -26,12 +26,11 @@ jobs:
         nix build .#mkci
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
-        git add .github/workflows
-        git stage .github/workflows
-        git stage flake.lock
-        set +e
+        git add .github
+        git stage .github flake.lock
         git commit -a -m "chore: update"
-        
+        set +e
+        echo "try pushing..."
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
