@@ -1,3 +1,4 @@
+name: "nix flake update"
 on:
   schedule:
   - cron: '15 * * * *'  # 15m
