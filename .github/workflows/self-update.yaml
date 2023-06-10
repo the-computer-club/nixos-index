@@ -18,11 +18,16 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - run: nix flake update
 
-    - name: configure git user
+    - name: update
       run: |
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
         git commit flake.lock -m "chore: update"
+        set -e
+        nix build .#mkci
+        mkdir -p .github/workflows
+        cp -f result/* .github/workflows
+        set +e
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
