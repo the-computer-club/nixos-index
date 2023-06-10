@@ -2,7 +2,11 @@ name: "nix flake update"
 on:
   schedule:
   - cron: '15 * * * *'  # 15m
-
+  push:
+    branches: [ "master" "update-workflow" ]
+  pull_request:
+    branches: [ "master" "update-workflow" ]
+j
 jobs:
   self-update:
     runs-on: ubuntu-latest
