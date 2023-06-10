@@ -24,14 +24,17 @@ jobs:
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
         git add .github
+        git fetch --all
+        git checkout auto-update
         git stage .github flake.lock
+        git commit -a -m 'chore: update'
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
-      with:
-        commit-message: "chore: update"
-        title: "chore: update"
-        body: "chore: update"
-        base: master
-        branch: auto-update
-        delete-branch: false
+    # - name: Create Pull Request
+    #   uses: peter-evans/create-pull-request@v5
+    #   with:
+    #     commit-message: "chore: update"
+    #     title: "chore: update"
+    #     body: "chore: update"
+    #     base: master
+    #     branch: auto-update
+    #     delete-branch: false
