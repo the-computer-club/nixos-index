@@ -30,9 +30,9 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        commit-message:
-          title: Update available
-          body: Update available
-          base: master
-          branch: auto-update
-          delete-branch: false
+        commit-message: "chore: update"
+        title: "chore: update"
+        body: "chore: update"
+        base: master
+        branch: auto-update
+        delete-branch: false
