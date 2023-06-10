@@ -3,9 +3,7 @@ on:
   schedule:
     - cron: '15 * * * *'  # 15m
   push:
-    branches: [ "master", "update-workflow" ]
-  pull_request:
-    branches: [ "master", "update-workflow" ]
+    branches: [ "master", "repair-self-update" ]
 
 jobs:
   self-update:
@@ -23,16 +21,18 @@ jobs:
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
         set -e
-        nix build .#mkci
+        nix build .#mkci || exit 1
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
         git add .github
         git stage .github flake.lock
-        git commit -a -m "chore: update"
-        set +e
-        echo "try pushing..."
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        commit-message:
+          title: Update available
+          body: Update available
+          base: master
+          branch: auto-update
+          delete-branch: false
