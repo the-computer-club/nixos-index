@@ -24,8 +24,10 @@ jobs:
         nix build .#mkci || exit 1
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
+        nix flake show | sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|k]//g' > TMP_README
+        echo "\`\`\`\n $(cat TMP_README) \n\`\`\`" > README.md
         git add .github
-        git stage .github flake.lock
+        git stage .github flake.lock README.md
         git commit -a -m 'chore: update' || echo "no updates!"
 
     # - name: Create Pull Request
