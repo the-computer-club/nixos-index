@@ -6,7 +6,7 @@ on:
     branches: [ "master" "update-workflow" ]
   pull_request:
     branches: [ "master" "update-workflow" ]
-j
+
 jobs:
   self-update:
     runs-on: ubuntu-latest
