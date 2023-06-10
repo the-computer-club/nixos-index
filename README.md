@@ -1,3 +1,4 @@
+```
 git+file:///etc/nixos/computer-club
 ├───deploy: unknown
 ├───homeConfigurations: unknown
@@ -25,3 +26,4 @@ git+file:///etc/nixos/computer-club
     └───x86_64-linux
         ├───gdlauncher: package 'gdlauncher'
         └───mkci: package 'workflow-codegen'
+```
