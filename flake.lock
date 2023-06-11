@@ -617,11 +617,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1686376644,
-        "narHash": "sha256-5g5FKTpCfz0vUcPL9eaQo0arVGMzgx+6d19qRJjpMRg=",
+        "lastModified": 1686443188,
+        "narHash": "sha256-AUh7h+ZhG9q2KuBg0xGrHn/l5u77VkziYt1MFurHL2k=",
         "owner": "QuantumCoded",
         "repo": "nixos",
-        "rev": "19983bf52f425a39acd5f0be46d83e0e03a5f419",
+        "rev": "80e4ceff4722748d2870cd35ec077cc07f750e81",
         "type": "github"
       },
       "original": {
