@@ -1,4 +1,3 @@
-```
 git+file:///home/runner/work/nixos-index/nixos-index?shallow=1
 ├───deploy: unknown
 ├───homeConfigurations: unknown
@@ -26,4 +25,3 @@ git+file:///home/runner/work/nixos-index/nixos-index?shallow=1
     └───x86_64-linux
         ├───gdlauncher: package 'gdlauncher'
         └───mkci: package 'workflow-codegen'
-```
