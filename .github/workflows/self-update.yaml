@@ -26,14 +26,10 @@ jobs:
         
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
-        rm result
         nix flake show --all-systems | sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|k]//g' > TMP_README
         echo -e "\`\`\`\n$(cat TMP_README) \n\`\`\`" > README.md || echo "couldnt write file"
-        git add .github README.md || echo "nothing to add!"
-        rm TMP_README
-        #git stage .github flake.lock README.md || echo "nothing to stage!"
-        #git commit -a -m 'chore: update' || echo "no updates!"
-        #git push origin auto-update || echo "couldnt push updates!"
+        git add .github/workflows README.md || echo "nothing to add!"
+        rm TMP_README result # Clean up artifacts
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
