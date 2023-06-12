@@ -1,5 +1,5 @@
 ```
-git+file:///home/runner/work/nixos-index/nixos-index?shallow=1
+git+file:///etc/nixos/computer-club
 ├───deploy: unknown
 ├───homeConfigurations: unknown
 ├───nixosConfigurations
