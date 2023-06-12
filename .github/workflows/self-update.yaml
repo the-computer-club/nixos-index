@@ -3,9 +3,7 @@ on:
   schedule:
     - cron: '15 * * * *'  # 15m
   push:
-    branches: [ "master", "update-workflow" ]
-  pull_request:
-    branches: [ "master", "update-workflow" ]
+    branches: [ "master", "repair-self-update" ]
 
 jobs:
   self-update:
@@ -16,23 +14,29 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: nix flake update
-
     - name: update
       run: |
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
-        set -e
-        nix build .#mkci
+        git fetch --all
+        git checkout auto-update
+        nix flake update >> COMMIT_MSG
+        nix build .#mkci || exit 1
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
-        git add .github
-        git stage .github flake.lock
-        git commit -a -m "chore: update"
-        set +e
-        echo "try pushing..."
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+        nix flake show --all-systems | sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|k]//g' > TMP_README
+        echo -e "\`\`\`\n$(cat TMP_README) \n\`\`\`" > README.md || echo "couldnt write file"
+        git add .github README.md || echo "nothing to add!"
+        #git stage .github flake.lock README.md || echo "nothing to stage!"
+        #git commit -a -m 'chore: update' || echo "no updates!"
+        #git push origin auto-update || echo "couldnt push updates!"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        commit-message: "chore: autoupdate"
+        title: "chore: autoupdate"
+        body: "chore: autoupdate"
+        base: master
+        branch: chore-autoupdate
+        delete-branch: true
