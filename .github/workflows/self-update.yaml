@@ -9,7 +9,7 @@ jobs:
   self-update:
     runs-on: ubuntu-latest
     outputs:
-      flake-update: ${{ steps.update.outputs.flake-update }} 
+      update: ${{ steps.update.outputs.update }} 
     
     steps:
     - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
         
-        echo "flake-update<<EOF" >> $GITHUB_OUTPUT
+        echo "update<<EOF" >> $GITHUB_OUTPUT
         nix flake update &>> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
        
@@ -43,7 +43,7 @@ jobs:
       with:
         commit-message: "chore: autoupdate"
         title: "chore: autoupdate"
-        body: "#Update:\n```${{steps.update.outputs.flake-update}}```"
+        body: "#Update:\n```${{steps.update.outputs.update}}```"
         base: master
         branch: chore-autoupdate
         delete-branch: true
