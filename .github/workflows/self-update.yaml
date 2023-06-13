@@ -14,16 +14,15 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+
     - name: update
+      id: update
       run: |
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git config --local user.name "${{ github.actor }}"
-        git fetch --all
-        git checkout auto-update
-
         nix flake update
         nix build .#mkci
-        
         mkdir -p .github/workflows
         cp -f result/* .github/workflows
         rm result
@@ -31,6 +30,7 @@ jobs:
         echo -e "\`\`\`\n$(cat TMP_README) \n\`\`\`" > README.md || echo "couldnt write file"
         git add .github/workflows README.md || echo "nothing to add!"
         rm -f TMP_README result
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
