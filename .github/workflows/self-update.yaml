@@ -43,7 +43,7 @@ jobs:
       with:
         commit-message: "chore: autoupdate"
         title: "chore: autoupdate"
-        body: "chore: autoupdate"
+        body: "#Update:\n```${{steps.update.outputs.flake-update}}```"
         base: master
         branch: chore-autoupdate
         delete-branch: true
