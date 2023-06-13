@@ -22,7 +22,7 @@ jobs:
         git config --local user.name "${{ github.actor }}"
         nix flake update &> UPDATE_OUTPUT       
         
-        if [[ 2 >= $(wc UPDATE_OUTPUT -l | cut -f 2 -d ' ') ]]; then
+        if [[ 2 -gt $(wc UPDATE_OUTPUT -l | cut -f 2 -d ' ') ]]; then
           exit 0
         fi
 
