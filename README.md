@@ -1,5 +1,5 @@
 ```
-git+file:///home/runner/work/nixos-index/nixos-index?ref=refs/heads/master&rev=2c3dbf5ba62fb636d83491482c76bf56cf3703c5&shallow=1
+git+file:///etc/nixos/nixos-index
 ├───deploy: unknown
 ├───homeConfigurations: unknown
 ├───nixosConfigurations
@@ -25,5 +25,5 @@ git+file:///home/runner/work/nixos-index/nixos-index?ref=refs/heads/master&rev=2
     │   └───mkci: package 'workflow-codegen'
     └───x86_64-linux
         ├───gdlauncher: package 'gdlauncher'
-        └───mkci: package 'workflow-codegen' 
+        └───mkci: package 'workflow-codegen'
 ```
