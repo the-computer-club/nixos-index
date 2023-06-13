@@ -25,5 +25,5 @@ git+file:///home/runner/work/nixos-index/nixos-index?shallow=1
     │   └───mkci: package 'workflow-codegen'
     └───x86_64-linux
         ├───gdlauncher: package 'gdlauncher'
-        └───mkci: package 'workflow-codegen'
+        └───mkci: package 'workflow-codegen' 
 ```
