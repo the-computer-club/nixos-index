@@ -1,5 +1,4 @@
-```
-git+file:///etc/nixos/nixos-index
+```.
 ├───deploy: unknown
 ├───homeConfigurations: unknown
 ├───nixosConfigurations
@@ -14,16 +13,16 @@ git+file:///etc/nixos/nixos-index
 │   ├───quantum: NixOS configuration
 │   └───whiskey: NixOS configuration
 └───packages
-    ├───aarch64-darwin
-    │   ├───gdlauncher: package 'gdlauncher'
-    │   └───mkci: package 'workflow-codegen'
-    ├───aarch64-linux
-    │   ├───gdlauncher: package 'gdlauncher'
-    │   └───mkci: package 'workflow-codegen'
-    ├───x86_64-darwin
-    │   ├───gdlauncher: package 'gdlauncher'
-    │   └───mkci: package 'workflow-codegen'
-    └───x86_64-linux
-        ├───gdlauncher: package 'gdlauncher'
-        └───mkci: package 'workflow-codegen'
+├───aarch64-darwin
+│   ├───gdlauncher: package 'gdlauncher'
+│   └───mkci: package 'workflow-codegen'
+├───aarch64-linux
+│   ├───gdlauncher: package 'gdlauncher'
+│   └───mkci: package 'workflow-codegen'
+├───x86_64-darwin
+│   ├───gdlauncher: package 'gdlauncher'
+│   └───mkci: package 'workflow-codegen'
+└───x86_64-linux
+├───gdlauncher: package 'gdlauncher'
+└───mkci: package 'workflow-codegen' 
 ```
