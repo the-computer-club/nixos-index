@@ -23,7 +23,8 @@ jobs:
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
 
         echo "update<<$EOF" >> $GITHUB_OUTPUT
-        nix flake update &>> $GITHUB_OUTPUT
+        echo "update info: " >> $GITHUB_OUTPUT
+        nix flake update >> $GITHUB_OUTPUT 2>&1
         echo "$EOF" >> $GITHUB_OUTPUT
        
         nix build .#mkci
