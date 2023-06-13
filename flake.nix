@@ -1,27 +1,20 @@
 {
   description = "index of nixos users";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.utils.url = "github:numtide/flake-utils";
   inputs.lunarix.url = "github:skarlett/nixos-config";
   inputs.jeffery.url = "github:QuantumCoded/nixos";
 
-  outputs = {self, nixpkgs, utils, ...}@inputs:
+  outputs = {self, nixpkgs, ...}@inputs:
     let
-      pkgs = import nixpkgs { system="x86_64-linux"; };
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      lib = pkgs.lib;
 
-      recursiveMerge = attrList:
-        with pkgs.lib;
-        let f = attrPath:
-          zipAttrsWith (n: values:
-            if tail values == []
-              then head values
-            else if all isList values
-              then unique (concatLists values)
-            else if all isAttrs values
-              then f (attrPath ++ [n]) values
-            else last values
-          );
-        in f [] attrList;
+      recursiveMerge = attrs: lib.fold lib.recursiveUpdate {} attrs;
+
+      withSystem = f:
+        lib.foldAttrs lib.mergeAttrs {}
+        (map (s: lib.mapAttrs (_: v: {${s} = v;}) (f s))
+          ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"]);
 
       # exclude inputs
       xinputs = (builtins.removeAttrs inputs
@@ -29,13 +22,11 @@
 
       output-list = map (c: c.outputs) (builtins.attrValues xinputs);
       outputs = recursiveMerge output-list;
-      override-packages = (utils.lib.eachDefaultSystem (system: {
+      override-packages = (withSystem (system: {
         # use lunarix's workflow-codegen
         # override self with our own outputs
         packages.mkci = inputs.lunarix.packages.${system}.mkci.override {
           self = outputs;
-          inherit (inputs.utils.lib) eachDefaultSystem;
-          inherit (inputs) nixpkgs;
         };
       }));
     in
