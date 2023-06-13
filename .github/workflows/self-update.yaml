@@ -26,7 +26,7 @@ jobs:
         git config --local user.name "${{ github.actor }}"
         
         echo "flake-update<<EOF" >> $GITHUB_OUTPUT
-        nix flake update 2>> $GITHUB_OUTPUT
+        nix flake update &> | cat >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
        
         nix build .#mkci
