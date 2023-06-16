@@ -633,11 +633,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1686887500,
-        "narHash": "sha256-wk6lV69aF8I1E9FHTIMdVcWmxE28aBlsxkrQwxp0RQk=",
+        "lastModified": 1686903859,
+        "narHash": "sha256-EQaXO3b2XwUAF+k9EzbP2S1ynas1iG+EJ0REpQe+1zA=",
         "owner": "QuantumCoded",
         "repo": "nixos",
-        "rev": "3799b98aa4070efc17c98f38fd4a649a25dc8b6a",
+        "rev": "321f9675866e1f89a394baab8c9f311a2d8d4c9a",
         "type": "github"
       },
       "original": {
