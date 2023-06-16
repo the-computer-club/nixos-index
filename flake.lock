@@ -633,11 +633,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1686828390,
-        "narHash": "sha256-zWsJsgog21qK8FKa2Wu+5S7pWyRDqGZKJ5svG07Zwjw=",
+        "lastModified": 1686878624,
+        "narHash": "sha256-Oix/44JJgHMZf6gcJo/cde+btD+9VDCZ30PFgvk7SnQ=",
         "owner": "QuantumCoded",
         "repo": "nixos",
-        "rev": "97e847d3fcc204bfb84c93d5152bb6b88861bbbe",
+        "rev": "1998b39f9d9c69a6a6811fa99a4469df2edfd9b5",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
     },
     "nixpkgs_12": {
       "locked": {
-        "lastModified": 1686582075,
-        "narHash": "sha256-vtflsfKkHtF8IduxDNtbme4cojiqvlvjp5QNYhvoHXc=",
+        "lastModified": 1686828063,
+        "narHash": "sha256-Cv0Sx1N5+3xBDF5OnmFU3Qoh9OqZmXDBKg1fgXlXTWs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7e63eed145566cca98158613f3700515b4009ce3",
+        "rev": "683f2f5ba2ea54abb633d0b17bc9f7f6dede5799",
         "type": "github"
       },
       "original": {
