@@ -680,11 +680,11 @@
         "vscode-extensions": "vscode-extensions"
       },
       "locked": {
-        "lastModified": 1687033230,
-        "narHash": "sha256-EQcjPLaEo0hXQUNIHOUrUnk2tD/TnkOvOqdTZnvv/IY=",
+        "lastModified": 1687036190,
+        "narHash": "sha256-Eb26h+Mp1f5R2HmMvAd4MAR8MySiKZ1PJJrEJm2eSmw=",
         "owner": "skarlett",
         "repo": "nixos-config",
-        "rev": "981b915db270339529f2b34abb48d9e1b04e7d2b",
+        "rev": "f97cd73f935bc3bd09103f0b8598aff45b79fca6",
         "type": "github"
       },
       "original": {
