@@ -680,11 +680,11 @@
         "vscode-extensions": "vscode-extensions"
       },
       "locked": {
-        "lastModified": 1687036190,
-        "narHash": "sha256-Eb26h+Mp1f5R2HmMvAd4MAR8MySiKZ1PJJrEJm2eSmw=",
+        "lastModified": 1687037188,
+        "narHash": "sha256-1KDTb582hVrxN4s/2o/ve9Z+x97ErJiGuU4bijhcKvw=",
         "owner": "skarlett",
         "repo": "nixos-config",
-        "rev": "f97cd73f935bc3bd09103f0b8598aff45b79fca6",
+        "rev": "375ec214d34eaeef10ac6df3a2f81e453edcd717",
         "type": "github"
       },
       "original": {
@@ -970,11 +970,11 @@
     },
     "nixpkgs_12": {
       "locked": {
-        "lastModified": 1686979235,
-        "narHash": "sha256-gBlBtk+KrezFkfMrZw6uwTuA7YWtbFciiS14mEoTCo0=",
+        "lastModified": 1687011986,
+        "narHash": "sha256-ZNSi/wBw12d7LO8YcZ4aehIlPp4lgSkKbrHaoF80IKI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7cc30fd5372ddafb3373c318507d9932bd74aafe",
+        "rev": "2c09e8eb8717e240ef9c5727c1cc9186db9fb309",
         "type": "github"
       },
       "original": {
