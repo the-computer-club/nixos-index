@@ -3,6 +3,7 @@
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   inputs.utils.url = "github:numtide/flake-utils";
   inputs.lunarix.url = "github:skarlett/nixos-config";
+  inputs.coggiebot.url = "github:skarlett/coggie-bot";
   inputs.jeffery.url = "github:QuantumCoded/nixos";
 
   outputs = {self, nixpkgs, utils, ...}@inputs:
