@@ -777,11 +777,11 @@
         "vscode-extensions": "vscode-extensions"
       },
       "locked": {
-        "lastModified": 1687214149,
-        "narHash": "sha256-8fHnZkTaACPe6ys9tk1M13C7D6nS8G46Smd0RkabkIU=",
+        "lastModified": 1687256224,
+        "narHash": "sha256-UCY7v3AYwwued4C5v9nhagc7oITF0zcPJz8b338FrzE=",
         "owner": "skarlett",
         "repo": "nixos-config",
-        "rev": "237d21b52ce20100c8b07b0a1d88e621f16067c7",
+        "rev": "aad3ec9fe18668af80397df3bb3c01b4a3c17f10",
         "type": "github"
       },
       "original": {
