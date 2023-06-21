@@ -82,11 +82,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1687207995,
-        "narHash": "sha256-HfGgAxFVHSyzdD5cjKjYrRYrYc6HNDUgRXiRA3PQ7eE=",
+        "lastModified": 1687360680,
+        "narHash": "sha256-l9UN1UGZXZAhv2sOYVztW40AZ1vEK0xzGhDslFNWSoA=",
         "owner": "skarlett",
         "repo": "coggie-bot",
-        "rev": "b6752be2f9f7805087e048090c554ec34cd8a017",
+        "rev": "dc7795357555a02e271b36d4ffb0b7fcaa2ab414",
         "type": "github"
       },
       "original": {
